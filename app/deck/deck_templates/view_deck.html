@@ -1,0 +1,33 @@
+{% extends 'base.html' %} 
+{% block content %}
+<head>
+  <title>Your deck</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='info.css')}}">
+</head>
+
+<h1 class="page-title text-dark text-opacity-75"><strong>Your virtual deck</strong></h1>
+<div class="bg-transparent poke-deck">
+    <style>
+        footer {
+            display: none;
+        }
+    </style>
+    {% for key, value in deck.items() %}
+    <div class="card m-2" style="width: 18rem;">
+        <img class="card-img-top" src="{{value['sprite_url']}}" alt="{{key}} image">
+        <div class="card-body">
+            <h5 class="card-title">{{key|title}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item list-item"><strong>Base EXP:</strong> {{value['base_xp']}}</li>
+            <li class="list-group-item list-item"><strong>Health:</strong> {{value['hp_base']}}</li>
+            <li class="list-group-item"><strong>Base Attack:</strong> {{value['def_base']}}</li>
+            <li class="list-group-item"><strong>Base Defense:</strong> {{value['def_base']}}</li>
+            <li class="list-group-item"><strong>First ability:</strong> {{value['ability']}}</li>
+        </ul>
+        <a href="/deck/remove/{{key|lower}}" class="btn btn-dark btn-lg rounded-0">Remove from deck</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

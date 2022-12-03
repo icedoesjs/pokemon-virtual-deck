@@ -1,0 +1,51 @@
+
+.center-container {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 20vh;
+    background-color: white;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 55vw;
+    height: 45.5vh;
+    align-items: center;
+}
+
+.left {
+    background-color: white;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    width: 25vw;
+    background-color: white;
+}
+
+.left-title {
+    color: black;
+    font-weight: 500;
+}
+
+.left-caption {
+    font-weight: 500;
+}
+
+.right {
+    height: auto
+}
+
+.right-img {
+    height: 50vh;
+}
+
+@media only screen and (min-width: 375px) and (max-width: 1025px) {
+    .right {
+        display: none
+    }
+
+    .left {
+        width: 100%
+    }
+}

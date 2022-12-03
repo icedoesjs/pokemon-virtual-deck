@@ -1,0 +1,25 @@
+{% extends 'base.html' %} 
+{% block content %}
+<head>
+  <title>{{config["WEBSITE_TITLE"]}}</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='info.css')}}">
+</head>
+
+<div class="bg-transparent" style="right: 50%; bottom: 50%; transform: translate(50%, 50%); position: absolute;">
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{data.front_shiny}}" alt="{{data.name}} image">
+    <div class="card-body">
+      <h5 class="card-title">{{data.name}}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item list-item"><strong>Base EXP:</strong> {{data.base_exp}}</li>
+      <li class="list-group-item list-item"><strong>Health:</strong> {{data.hp_base}}</li>
+      <li class="list-group-item"><strong>Base Attack:</strong> {{data.attack_base}}</li>
+      <li class="list-group-item"><strong>Base Defense:</strong> {{data.defense_base}}</li>
+      <li class="list-group-item"><strong>First ability:</strong> {{data.ability}}</li>
+    </ul>
+  </div>
+</div>
+{% include 'footer.html' %}
+
+{% endblock %}

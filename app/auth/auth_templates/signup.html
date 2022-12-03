@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename='signup.css')}}">
+</head>
+
+<div class="login-container">
+    <h1><strong>Join the adventure</strong></h1>
+    
+    <form method="POST">
+
+    {{ form.hidden_tag() }}
+
+    <div class="input-group flex-nowrap box-sizing mb-5">
+        <span class="input-group-text bg-white" id="addon-wrapping"><i class="fa-solid fa-signature"></i></span>
+        {{ form.first_name(class="form-control input-box", placeholder="Your first name") }}
+    </div>
+
+    <div class="input-group flex-nowrap box-sizing mb-5">
+        <span class="input-group-text bg-white" id="addon-wrapping"><i class="fa-solid fa-people-group"></i></span>
+        {{ form.last_name(class="form-control input-box", placeholder="Your last name") }}
+    </div>
+
+    <div class="input-group flex-nowrap box-sizing mb-5">
+        <span class="input-group-text bg-white" id="addon-wrapping"><i class="fa-solid fa-image"></i></span>
+        {{ form.avatar(class="form-control input-box", placeholder="Avatar URL") }}
+    </div>
+
+    <div class="input-group flex-nowrap box-sizing mb-5">
+        <span class="input-group-text bg-white" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
+        {{ form.username(class="form-control input-box", placeholder="someusername") }}
+    </div>
+
+    <div class="input-group flex-nowrap box-sizing">
+        <span class="input-group-text bg-white" id="addon-wrapping"><i class="fa-solid fa-envelope"></i></span>
+        {{ form.email(class="form-control input-box", placeholder="example@email.com") }}
+    </div>
+
+    <div class="input-group flex-nowrap box-spacing box-sizing">
+        <span class="input-group-text bg-white" id="addon-wrapping"><i class="fa-solid fa-lock"></i></i></span>
+        {{ form.password(class="form-control input-box", placeholder="Enter your password") }}
+    </div>
+
+    <div class="input-group flex-nowrap box-spacing box-sizing">
+        <span class="input-group-text bg-white" id="addon-wrapping"><i class="fa-solid fa-lock"></i></i></span>
+        {{ form.confirm_password(class="form-control input-box", placeholder="Confirm your password") }}
+    </div>
+
+<div class="text-container">
+    {{ form.submit(class="btn btn-outline-dark btn-lg btn-spacing signup-btn", value="Sign up") }}
+</form>
+</div>
+</div>
+
+{% endblock %}

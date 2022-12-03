@@ -1,0 +1,28 @@
+{% extends 'base.html' %} 
+{% block content %}
+<head>
+  <title>{{config["WEBSITE_TITLE"]}}</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}">
+</head>
+<body>
+  <div class="center-container">
+    <div class="left">
+        <h5 class="card-title left-title">Pokemon Deck creator</h5>
+        <h5 class="card-title left-title">& Statistics viewer</h5>
+        <p class="card-text left-caption">See statistics about a specified pokemon using PokeAPI & Create a virtual deck</p>
+        {% if deck %}
+        <a href="/deck/add" class="btn btn-dark mb-2">Add to your deck</a>
+        <a href="/deck/view" class="btn btn-dark mb-2">View your deck</a>
+        {% else %}
+        <a href="/deck/create" class="btn btn-dark">Create virtual deck</a>
+        {% endif %}
+        <a href="/viewer" class="btn btn-outline-dark" style="background-color: #ffcb05;">View a Pokemon</a>
+    </div>
+    <div class="right">
+      <img class="right-img" src="https://pngimg.com/uploads/pokemon/pokemon_PNG148.png">
+    </div>
+  </div>
+</body>
+
+
+{% endblock %}

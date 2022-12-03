@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename='signup.css')}}">
+</head>
+
+<div class="login-container">
+    <h1><strong>Edit your profile</strong></h1>
+    
+    <form method="POST">
+
+    {{ form.hidden_tag() }}
+
+    <div class="input-group flex-nowrap box-sizing mb-5">
+        <span class="input-group-text bg-white" id="addon-wrapping"><i class="fa-solid fa-signature"></i></span>
+        {{ form.first_name(class="form-control input-box", value=user.firstname)}}
+    </div>
+
+    <div class="input-group flex-nowrap box-sizing mb-5">
+        <span class="input-group-text bg-white" id="addon-wrapping"><i class="fa-solid fa-people-group"></i></span>
+        {{ form.last_name(class="form-control input-box", value=user.lastname)}}
+    </div>
+
+    <div class="input-group flex-nowrap box-sizing mb-5">
+        <span class="input-group-text bg-white" id="addon-wrapping"><i class="fa-solid fa-image"></i></span>
+        {{ form.avatar(class="form-control input-box", value=user.avatar)}}
+    </div>
+
+    <div class="input-group flex-nowrap box-sizing mb-5">
+        <span class="input-group-text bg-white" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
+        {{ form.username(class="form-control input-box", value=user.username) }}
+    </div>
+
+    <div class="input-group flex-nowrap box-sizing">
+        <span class="input-group-text bg-white" id="addon-wrapping"><i class="fa-solid fa-envelope"></i></span>
+        {{ form.email(class="form-control input-box", value=user.email)}}
+    </div>
+
+<div class="text-container">
+    {{ form.submit(class="btn btn-outline-dark btn-lg btn-spacing signup-btn", value="Edit profile") }}
+</form>
+</div>
+</div>
+
+{% endblock %}

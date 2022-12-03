@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+{% block content %}
+<head>
+  <title>{{config["WEBSITE_TITLE"]}}</title>
+</head>
+
+
+<div class="bg-transparent form-holder" style="height: 20vh;right: 50%; bottom: 50%; transform: translate(50%, 50%); position: absolute;width: 30vw;">
+<form method="POST">
+    {{ form.hidden_tag() }}
+
+    <div class="mb-3" style="display: flex; justify-content: center;flex-wrap: wrap">
+      <label style="margin-top: 3vh;width: 100%" for="pokemonName" class="form-label text-dark">What pokemon do you want to add to your deck?</label>
+      {{ form.name(id="name", class="form-control text-dark", placeholder="Eg: Pikachu", style="width: 25vw;") }}
+    </div>
+        {{ form.submit(class="btn btn-dark", onclick="toggle_display()" , value='Add to deck') }}
+</form>
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock %}

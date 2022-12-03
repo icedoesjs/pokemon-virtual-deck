@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+  <div class="container">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarButtonsExample"
+      aria-controls="navbarButtonsExample"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars text-white"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarButtonsExample">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-white text-opacity-75" style="font-weight: 500; font-size: 1.8vh" href="/">Pokemon Deck Creator</a>
+        </li>
+      </ul>
+
+      {% if not current_user.is_authenticated %} 
+      <div class="d-flex align-items-center">
+        <button type="button" class="btn me-2 btn-outline-success">
+          <a style="text-decoration: none;color: white" href="/login">Login</a>
+        </button>
+      </div>
+      {% endif %}
+      {% if current_user.is_authenticated %} 
+      <div class="d-flex align-items-center">
+        <button type="button" class="btn me-2 btn-outline-success">
+          <a style="text-decoration: none;color: white" href="/logout">Logout</a>
+        </button>
+      </div>
+      <a class="btn px-3 text-white text-opacity-75" href="/user/{{current_user.id}}" role="button" ><i class="fa-solid fa-user-large"></i> </a>
+      {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>

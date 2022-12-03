@@ -1,0 +1,37 @@
+{% extends 'base.html'%}
+{% block content %}
+
+
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename='signin.css')}}">
+</head>
+
+
+<div class="login-container">
+    <span><i class="fa-solid fa-child-reaching fa-2xl welcome-ico"></i></span>
+    <h1><strong>Welcome back</strong></h1>
+    <p class="signin-caption">Let's get you signed in</p>
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
+    <div class="input-group flex-nowrap box-sizing">
+        <span class="input-group-text bg-white" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
+        {{ form.username(class="form-control input-box", placeholder='Enter your username') }}
+    </div>
+
+    <div class="input-group flex-nowrap box-spacing box-sizing">
+        <span class="input-group-text bg-white" id="addon-wrapping"><i class="fa-solid fa-lock"></i></i></span>
+        {{ form.password(class="form-control input-box", placeholder='Enter your password') }}
+    </div>
+
+    <div class="text-container">
+        {{ form.submit(class="btn btn-dark btn-lg btn-spacing", style="width: 100%;", value="Sign in")}}
+        <p class="help-text"><a href="" class="no-deco">Forgot password?</a></p>
+        <p class="social-signin"><span>No account?</span></p>
+    <div class="btn-container">
+        <button class="btn btn-outline-dark btn-lg" style="width: 100%"><a href="/signup" class="no-deco-black hover-white">Create an account</a></button>
+    </div>
+    </div>  
+    </form>
+</div>
+{% endblock %}

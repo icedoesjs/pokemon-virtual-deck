@@ -1,0 +1,100 @@
+* {
+    margin: 0
+}
+
+html, body {
+    margin: 0;
+    height: 100%
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #332D2D;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    height: fit-content;
+    background: white;
+    width: 100%;
+}
+
+.no-deco-black {
+    text-decoration: none;
+    color: black;
+}
+
+.no-deco-white {
+    text-decoration: none;
+    color: white;
+}
+
+.no-deco-black:hover {
+    color: black;
+}
+
+.no-deco-white:hover {
+    color: white;
+}
+
+.hover-black:hover {
+    color: black;
+}
+
+.hover-white:hover {
+    color: white;
+}
+
+.center-div {
+    display: flex;
+    flex-wrap: nowrap;
+    height: fit-content;
+    background-color: white;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: fit-content;
+    align-items: center;
+}
+
+.img-small {
+    height: 50vh;
+    width: 25vw;
+}
+
+.poke-deck {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    height: fit-content;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    height: 100%;
+}
+
+@media only screen and (min-width: 375px) and (max-width: 1025px) {
+    .poke-deck {
+        flex-direction: column;
+        margin-top: 10vh;
+    }
+
+}
+

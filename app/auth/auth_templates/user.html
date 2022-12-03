@@ -1,0 +1,52 @@
+{% extends 'base.html' %} 
+{% block content %}
+<head>
+  <title>{{config["WEBSITE_TITLE"]}}</title>
+</head>
+
+
+<div class="bg-transparent form-holder center-div">
+<form method="POST">
+    <div class="card text-center">
+    <div class="card-body">
+    <img class="card-img-top rounded pb-1 img-small" src="{{user.avatar}}" alt="User profile avatar">
+    <h5 class="card-title">{{user.username}}</h5>
+    <p class="card-text"><strong>Name:</strong> {{user.firstname}} {{user.lastname}}</p>
+    <p class="card-text"><strong>Email:</strong> {{user.email}}</p>
+    {% if current_user.id == user.id %}
+    <a href="/user/edit/{{user.id}}" class="btn btn-dark btn-lg btn-spacing">Edit Your Profile</a>
+    <button type="button" class="btn btn-danger btn-lg btn-spacing" data-toggle="modal" data-target="#areyousure">
+        Delete Profile
+    </button>
+
+    <div class="modal fade" id="areyousure" tabindex="-1" role="dialog" aria-labelledby="areyoursureTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Are you sure you want to delete your profile?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            <p>This action cannot be undone.</p>
+            </div>
+            <div class="modal-footer text-center">
+            <button type="button" class="btn btn-dark" data-dismiss="modal">No, take me back</button>
+            <button type="button" class="btn btn-danger"><a href="/user/delete/{{user.id}}" class="no-deco-white">Yes, i'm sure</a></button>
+        </div>
+        </div>
+        </div>
+    </div>
+    {% endif %}
+    </div>
+    <div class="card-footer text-muted">
+    Created on {{user.date_created}}
+    </div>
+</div>
+</form>
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock %}

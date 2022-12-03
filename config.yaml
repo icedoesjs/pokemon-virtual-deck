@@ -1,0 +1,5 @@
+env: 'debug'
+website_title: 'Pokemon Stats'
+name: 'Jordan'
+sqlalchemy_database_uri: 'postgresql://dwdieubh:v6azR3vwUVEZ2pd7nigpYqB58_HDtnot@peanut.db.elephantsql.com/dwdieubh'
+sqlalchemy_track_modifications: False
