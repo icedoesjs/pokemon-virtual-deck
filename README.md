@@ -1,5 +1,6 @@
 # pokemon-virtual-deck
-A simple pokemon virtual deck creator using flask and boostrap5  
+A poke deck system and battle system  
+The algorithm is very simple, due to lack of time
 This page is for once, fully responsive  
 The only button on this site which does not work is __forgot password__
 
