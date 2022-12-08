@@ -13,8 +13,10 @@ class Users(db.Model, UserMixin):
     password = db.Column(db.String(250), nullable=False)
     avatar = db.Column(db.String(250), nullable=False)
     date_created = db.Column(db.String(50), nullable=False)
+    wins = db.Column(db.Integer, nullable=False)
+    lose = db.Column(db.Integer, nullable=False)
 
-    def __init__(self, first_name, last_name, username, email, password, avatar, date):
+    def __init__(self, first_name, last_name, username, email, password, avatar, date, wins, lose):
         self.firstname = first_name
         self.lastname = last_name
         self.username = username
@@ -22,6 +24,8 @@ class Users(db.Model, UserMixin):
         self.password = generate_password_hash(password)
         self.avatar = avatar
         self.date_created = date
+        self.wins = wins
+        self.lose = lose
 
     def save_to_db(self):
         db.session.add(self)

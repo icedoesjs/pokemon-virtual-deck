@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300,700');
+
+html {
+    min-height: 100%;
+}
+
+body {
+    animation: rattle 0.2s;
+    animation-delay: 1s;
+    background-image: url(../static/img/Wallpaper-Green-Lawn-Grass-And-Body-Of-Water-Illustration33.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Open Sans", Helvetica, sans-serif;
+	text-align: center;
+    background-attachment: fixed;
+    align-items: center;
+}
+
+nav {
+    display: none;
+    visibility: hidden;
+}
+
+footer {
+    display: none;
+}
+
+
+.center-div {
+    display: flex;
+    flex-wrap: nowrap;
+    height: fit-content;
+    margin: auto;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: fit-content;
+    align-items: center;
+    background-color: transparent;
+}
+
+.text-container {
+    background-color: transparent;
+    color: white;
+    margin-top: 8vh;
+}
+
+.text-container > h1 {
+    font-weight: bold;
+    font-size: 5rem;
+}
+
+.text-container > p {
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.btn-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2vh;
+}
+
+@media only screen and (min-width: 375px) and (max-width: 1025px) {
+    .text-container {
+        margin-top: 5vh;
+    }
+
+    .text-container > h1 {
+        font-size: 3rem;
+    }
+
+    .text-container > p {
+        font-size: 1rem;
+    }
+}
+
+

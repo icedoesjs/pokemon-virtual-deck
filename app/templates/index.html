@@ -1,7 +1,7 @@
 {% extends 'base.html' %} 
 {% block content %}
 <head>
-  <title>{{config["WEBSITE_TITLE"]}}</title>
+  <title>Pokemon</title>
   <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}">
 </head>
 <body>
@@ -13,6 +13,7 @@
         {% if deck %}
         <a href="/deck/add" class="btn btn-dark mb-2">Add to your deck</a>
         <a href="/deck/view" class="btn btn-dark mb-2">View your deck</a>
+        <a href="/battle" class="btn btn-outline-dark" style="background-color: #ffcb05;">Battle pokemon</a>
         {% else %}
         <a href="/deck/create" class="btn btn-dark">Create virtual deck</a>
         {% endif %}

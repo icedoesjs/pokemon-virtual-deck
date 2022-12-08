@@ -57,7 +57,7 @@ def signup():
     form = CreateUser()
     if request.method == 'POST':
         if form.validate():
-            username = form.username.data 
+            username = form.username.data.lower() 
             email = form.email.data
             password = form.password.data 
             conf_pass = form.confirm_password.data
@@ -65,6 +65,8 @@ def signup():
             lastName = form.last_name.data 
             date_created = today.strftime("%B %d, %Y")
             avatar = form.avatar.data 
+            wins = 0
+            lose = 0
             
             if not avatar:
                 avatar = "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
@@ -73,7 +75,7 @@ def signup():
                 flash('Your passwords do not match', 'danger')
                 return redirect(url_for('auth.signup'))
     
-            user = Users(firstName, lastName, username, email, password, avatar, date_created)
+            user = Users(firstName, lastName, username, email, password, avatar, date_created, wins, lose)
             
             user.save_to_db()
             flash('Your account was created, please sign in', 'success')
@@ -89,7 +91,7 @@ def login():
             username = form.username.data 
             password = form.password.data 
             
-            user = Users.query.filter_by(username=username).first()
+            user = Users.query.filter_by(username=username.lower()).first()
             if user:
                 if check_password_hash(user.password, password):
                     login_user(user)

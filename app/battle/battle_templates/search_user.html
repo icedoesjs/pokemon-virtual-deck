@@ -1,7 +1,7 @@
 {% extends 'base.html' %} 
 {% block content %}
 <head>
-  <title>Stats view</title>
+  <title>Battle user</title>
 </head>
 
 <div class="bg-transparent form-holder" style="height: 20vh;right: 50%; bottom: 50%; transform: translate(50%, 50%); position: absolute;width: 30vw;">
@@ -9,10 +9,10 @@
     {{ form.hidden_tag() }}
 
     <div class="mb-3" style="display: flex; justify-content: center;flex-wrap: wrap">
-      <label style="margin-top: 3vh;width: 100%" for="pokemonName" class="form-label text-dark">Who's stats do you wanna view?</label>
-      {{ form.poke_name(id="pokemonName", class="form-control text-dark", placeholder="Eg: Pikachu", style="width: 25vw;") }}
+      <label style="margin-top: 3vh;width: 100%" for="pokemonName" class="form-label text-dark">Who do you want to battle?</label>
+      {{ form.name(id="name", class="form-control text-dark", placeholder="Eg: someusername", style="width: 25vw;") }}
     </div>
-        {{ form.submit_btn(class="btn btn-dark", onclick="toggle_display()" , value='View statistics') }}
+        {{ form.submit(class="btn btn-dark", onclick="toggle_display()" , value='Start battle') }}
 </form>
 </div>
 

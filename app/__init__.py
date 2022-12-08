@@ -6,6 +6,7 @@ from flask_login import LoginManager
 
 from .auth.routes import auth
 from .deck.routes import deck
+from .battle.routes import battle
 
 site = Flask(__name__)
 
@@ -21,6 +22,7 @@ for key, value in config["config"].items():
 # Register Blueprint
 site.register_blueprint(auth)
 site.register_blueprint(deck)
+site.register_blueprint(battle)
 
 login_manager = LoginManager()
 @login_manager.user_loader

@@ -1,0 +1,94 @@
+{% extends 'base.html' %} 
+{% block content %}
+<head>
+  <title>Start battle</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='battle.css')}}">
+</head>
+
+<div class="card-holder">
+  {% for key, value in user.items() %}
+  <figure class="card card--normal m-2">
+    <div class="card__image-container">
+      <img src="{{value['sprite_url']}}" alt="{{key}} image" class="card__image">   
+    </div>
+    
+    <figcaption class="card__caption">
+      <h1 class="card__name">{{key|title}}</h1>
+  
+      <table class="card__stats">
+        <tbody><tr>
+          <th>HP</th>
+          <td>{{value['hp_base']}}</td>
+        </tr>
+        <tr>
+          <th>Attack</th>
+          <td>{{value['attack']}}</td>
+        </tr>
+        
+        <tr>
+          <th>Defense</th>
+          <td>{{value['def_base']}}</td>
+        </tr>
+      </tbody></table>
+      
+      <div class="card__abilities">
+        <h4 class="card__ability">
+          <span class="card__label">Ability</span>
+          {{value['ability']|title}}
+        </h4>
+        <h4 class="card__ability">
+          <span class="card__label">Hidden Ability</span>
+          {{value['hidden-ability']|replace("-", " ")|title}}
+        </h4>
+      </div>
+    </figcaption>
+  </figure>
+{% endfor %}
+</div>
+
+
+<span class="slam-text">VS</span>
+<div class="card-holder bottom-deck">
+  {% for key, value in opponent.items() %}
+  <figure class="card card--normal m-2">
+    <div class="card__image-container">
+      <img src="{{value['sprite_url']}}" alt="{{key}} image" class="card__image">   
+    </div>
+    
+    <figcaption class="card__caption">
+      <h1 class="card__name">{{key|title}}</h1>
+  
+      <table class="card__stats">
+        <tbody><tr>
+          <th>HP</th>
+          <td>{{value['hp_base']}}</td>
+        </tr>
+        <tr>
+          <th>Attack</th>
+          <td>{{value['attack']}}</td>
+        </tr>
+        
+        <tr>
+          <th>Defense</th>
+          <td>{{value['def_base']}}</td>
+        </tr>
+      </tbody></table>
+      
+      <div class="card__abilities">
+        <h4 class="card__ability">
+          <span class="card__label">Ability</span>
+          {{value['ability']|title}}
+        </h4>
+        <h4 class="card__ability">
+          <span class="card__label">Hidden Ability</span>
+          {{value['hidden-ability']|replace("-", " ")|title}}
+        </h4>
+      </div>
+    </figcaption>
+  </figure>
+{% endfor %}
+</div>
+
+<a href="/battle/start/{{op_id}}" class="btn btn-dark battle-btn">Take me to battle!</a>
+
+{% endblock %}

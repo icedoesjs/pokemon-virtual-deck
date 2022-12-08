@@ -6,7 +6,9 @@ CREATE TABLE users (
     email VARCHAR(150),
     password VARCHAR(250),
     avatar VARCHAR(250),
-	date_created VARCHAR(50)
+	date_created VARCHAR(50),
+    wins INT,
+    lose INT
 );
 
 CREATE TABLE deck(

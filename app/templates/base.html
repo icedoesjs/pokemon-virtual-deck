@@ -13,8 +13,6 @@
 </head>
 <body style="background-color: white;text-align: center;">
     {% include 'navbar.html' %}
-
-
     {% with messages = get_flashed_messages(with_categories=true) %} 
     {% if messages %}
         {% for category, message in messages %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %} 
+{% block content %}
+<head>
+    <title>Defeat</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='match_lost.css')}}">
+</head>
+
+<div class="center-div">
+    <div class="text-container">
+        <h1>Defeated by {{name}}</h1>
+        <p class="total-dmg">The opponent dealt {{total_damage}} damage</p>
+    </div>
+</div>
+<div class="btn-container">
+    <a href="/home" class="btn bg-transparent text-white btn-lg">Return To Menu</a>
+</div>
+
+{% endblock %}

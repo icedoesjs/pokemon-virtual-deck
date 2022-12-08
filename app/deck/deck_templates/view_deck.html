@@ -1,33 +1,51 @@
 {% extends 'base.html' %} 
 {% block content %}
 <head>
-  <title>Your deck</title>
-  <link rel="stylesheet" href="{{url_for('static', filename='info.css')}}">
+    <title>Your deck</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='info.css')}}">
 </head>
-
 <h1 class="page-title text-dark text-opacity-75"><strong>Your virtual deck</strong></h1>
-<div class="bg-transparent poke-deck">
-    <style>
-        footer {
-            display: none;
-        }
-    </style>
-    {% for key, value in deck.items() %}
-    <div class="card m-2" style="width: 18rem;">
-        <img class="card-img-top" src="{{value['sprite_url']}}" alt="{{key}} image">
-        <div class="card-body">
-            <h5 class="card-title">{{key|title}}</h5>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item list-item"><strong>Base EXP:</strong> {{value['base_xp']}}</li>
-            <li class="list-group-item list-item"><strong>Health:</strong> {{value['hp_base']}}</li>
-            <li class="list-group-item"><strong>Base Attack:</strong> {{value['def_base']}}</li>
-            <li class="list-group-item"><strong>Base Defense:</strong> {{value['def_base']}}</li>
-            <li class="list-group-item"><strong>First ability:</strong> {{value['ability']}}</li>
-        </ul>
-        <a href="/deck/remove/{{key|lower}}" class="btn btn-dark btn-lg rounded-0">Remove from deck</a>
-    </div>
-    {% endfor %}
-</div>
 
+<div class="card-holder">
+    {% for key, value in deck.items() %}
+    <figure class="card card--normal m-2">
+      <div class="card__image-container">
+        <img src="{{value['sprite_url']}}" alt="{{key}} image" class="card__image">   
+      </div>
+      
+      <figcaption class="card__caption">
+        <h1 class="card__name">{{key|title}}</h1>
+    
+        <table class="card__stats">
+          <tbody><tr>
+            <th>HP</th>
+            <td>{{value['hp_base']}}</td>
+          </tr>
+          <tr>
+            <th>Attack</th>
+            <td>{{value['attack']}}</td>
+          </tr>
+          
+          <tr>
+            <th>Defense</th>
+            <td>{{value['def_base']}}</td>
+          </tr>
+        </tbody></table>
+        
+        <div class="card__abilities">
+          <h4 class="card__ability">
+            <span class="card__label">Ability</span>
+            {{value['ability']|title}}
+          </h4>
+          <h4 class="card__ability">
+            <span class="card__label">Hidden Ability</span>
+            {{value['hidden-ability']|replace("-", " ")|title}}
+          </h4>
+          <span class="card__label"><a href="/deck/remove/{{key}}" class="btn btn-lg btn-spacing">Remove {{key|title}}</a></span>
+        </div>
+      </figcaption>
+    </figure>
+  {% endfor %}
+  </div>
+  
 {% endblock %}

@@ -4,7 +4,6 @@
   <title>{{config["WEBSITE_TITLE"]}}</title>
 </head>
 
-
 <div class="bg-transparent form-holder center-div">
 <form method="POST">
     <div class="card text-center">
@@ -13,6 +12,8 @@
     <h5 class="card-title">{{user.username}}</h5>
     <p class="card-text"><strong>Name:</strong> {{user.firstname}} {{user.lastname}}</p>
     <p class="card-text"><strong>Email:</strong> {{user.email}}</p>
+    <p class="card-text"><strong><i class="fa-solid fa-trophy"></i></strong> {{user.wins}}</p>
+    <p class="card-text"><strong><i class="fa-solid fa-xmark"></i></strong> {{user.lose}}</p>
     {% if current_user.id == user.id %}
     <a href="/user/edit/{{user.id}}" class="btn btn-dark btn-lg btn-spacing">Edit Your Profile</a>
     <button type="button" class="btn btn-danger btn-lg btn-spacing" data-toggle="modal" data-target="#areyousure">

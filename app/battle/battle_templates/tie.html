@@ -1,0 +1,18 @@
+{% extends 'base.html' %} 
+{% block content %}
+<head>
+    <title>Tie</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='match_tie.css')}}">
+</head>
+
+<div class="center-div">
+    <div class="text-container">
+        <h1>You and {{name}} tied</h1>
+        <p class="total-dmg">No win or loss has been added</p>
+    </div>
+</div>
+<div class="btn-container">
+    <a href="/home" class="btn bg-transparent text-white btn-lg">Return To Menu</a>
+</div>
+
+{% endblock %}
